@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Start - Chat App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .code-block {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-family: "Courier New", monospace;
+        overflow-x: auto;
+      }
+      .copy-btn {
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .copy-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen p-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold mb-6 text-gray-900">
+          🚀 Quick Start Guide
+        </h1>
+
+        <div class="space-y-6">
+          <!-- Solution 0: JavaScript Browser Extension -->
+          <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded">
+            <h2 class="text-xl font-semibold text-purple-900 mb-3">
+              🚀 Solution 0: JavaScript Browser Extension (Recommended)
+            </h2>
+            <p class="text-gray-700 mb-4">
+              This ships with a
+              <strong>pure JavaScript Chrome extension</strong> that safely
+              bypasses CORS for <code>localhost:11434</code> while you run the
+              app locally.
+            </p>
+
+            <div class="bg-white p-4 rounded mb-4">
+              <p class="text-sm font-semibold text-gray-700 mb-2">
+                Step 1: Open Chrome extensions page
+              </p>
+              <p class="text-sm text-gray-600">
+                Go to <code>chrome://extensions</code> and enable
+                <strong>Developer Mode</strong> (top-right toggle)
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded mb-4">
+              <p class="text-sm font-semibold text-gray-700 mb-2">
+                Step 2: Load the extension from this project
+              </p>
+              <div class="code-block relative mt-2">
+                <code
+                  >chrome://extensions → Load unpacked → select
+                  <strong>browser-extension</strong> folder</code
+                >
+              </div>
+              <p class="text-xs text-gray-500 mt-2">
+                ✅ Grant file URL access by clicking “Details” → enable “Allow
+                access to file URLs”
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded">
+              <p class="text-sm font-semibold text-gray-700 mb-2">
+                Step 3: Open index.html in your browser
+              </p>
+              <p class="text-xs text-green-600 font-semibold">
+                🎉 The extension intercepts requests from your page and forwards
+                them with the required CORS headers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Solution 1: Chrome Flag -->
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
+            <h2 class="text-xl font-semibold text-blue-900 mb-3">
+              ✅ Solution 1: Chrome with CORS Disabled
+            </h2>
+            <p class="text-gray-700 mb-4">
+              This is the <strong>easiest</strong> JavaScript-only solution. It
+              requires no server setup.
+            </p>
+
+            <div class="bg-white p-4 rounded mb-4">
+              <p class="text-sm font-semibold text-gray-700 mb-2">
+                Step 1: Close ALL Chrome windows
+              </p>
+              <p class="text-sm text-gray-600">
+                Make sure Chrome is completely closed (check task manager if
+                needed)
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded mb-4">
+              <p class="text-sm font-semibold text-gray-700 mb-2">
+                Step 2: Copy and run this command in Command Prompt or
+                PowerShell:
+              </p>
+              <div class="code-block relative mt-2">
+                <code id="chrome-cmd"
+                  >"C:\Program Files\Google\Chrome\Application\chrome.exe"
+                  --user-data-dir="C:/temp/chrome_dev" --disable-web-security
+                  --disable-features=VizDisplayCompositor</code
+                >
+                <button
+                  onclick="copyToClipboard('chrome-cmd')"
+                  class="copy-btn absolute top-2 right-2 bg-blue-600 text-white px-3 py-1 rounded text-xs"
+                >
+                  📋 Copy
+                </button>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">
+                💡 If Chrome is installed elsewhere, adjust the path accordingly
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded">
+              <p class="text-sm font-semibold text-gray-700 mb-2">
+                Step 3: Open index.html in the Chrome window that opens
+              </p>
+              <p class="text-xs text-red-600 font-semibold">
+                ⚠️ WARNING: Only use this Chrome instance for development. Never
+                browse the web with CORS disabled!
+              </p>
+            </div>
+          </div>
+
+          <!-- Solution 2: HTTP Server -->
+          <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded">
+            <h2 class="text-xl font-semibold text-green-900 mb-3">
+              🌐 Solution 2: Simple HTTP Server
+            </h2>
+            <p class="text-gray-700 mb-4">
+              If you have PHP, Ruby, or Python installed, use one of these:
+            </p>
+
+            <div class="space-y-3">
+              <div>
+                <p class="text-sm font-semibold text-gray-700 mb-1">PHP:</p>
+                <div class="code-block relative">
+                  <code id="php-cmd">php -S localhost:8000</code>
+                  <button
+                    onclick="copyToClipboard('php-cmd')"
+                    class="copy-btn absolute top-2 right-2 bg-green-600 text-white px-3 py-1 rounded text-xs"
+                  >
+                    📋 Copy
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-gray-700 mb-1">Ruby:</p>
+                <div class="code-block relative">
+                  <code id="ruby-cmd">ruby -run -e httpd . -p 8000</code>
+                  <button
+                    onclick="copyToClipboard('ruby-cmd')"
+                    class="copy-btn absolute top-2 right-2 bg-green-600 text-white px-3 py-1 rounded text-xs"
+                  >
+                    📋 Copy
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-gray-700 mb-1">Python:</p>
+                <div class="code-block relative">
+                  <code id="python-cmd">python -m http.server 8000</code>
+                  <button
+                    onclick="copyToClipboard('python-cmd')"
+                    class="copy-btn absolute top-2 right-2 bg-green-600 text-white px-3 py-1 rounded text-xs"
+                  >
+                    📋 Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-600 mt-4">
+              Then open:
+              <code class="bg-white px-2 py-1 rounded"
+                >http://localhost:8000/index.html</code
+              >
+            </p>
+          </div>
+
+          <!-- Solution 3: Browser Extension -->
+          <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded">
+            <h2 class="text-xl font-semibold text-purple-900 mb-3">
+              🔌 Solution 3: Browser Extension
+            </h2>
+            <p class="text-gray-700 mb-4">
+              Install a CORS extension from Chrome Web Store:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>"CORS Unblock" by Moesif</li>
+              <li>"Allow CORS: Access-Control-Allow-Origin"</li>
+            </ul>
+            <p class="text-sm text-gray-600 mt-4">
+              Enable the extension, then open
+              <code class="bg-white px-2 py-1 rounded">index.html</code>
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 flex gap-4">
+          <button
+            onclick="window.location.href='index.html'"
+            class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 font-semibold"
+          >
+            ← Back to Chat
+          </button>
+          <button
+            onclick="window.open('https://github.com/ollama/ollama', '_blank')"
+            class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 font-semibold"
+          >
+            Ollama Docs
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent.trim();
+
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const btn = element.nextElementSibling;
+            const originalText = btn.textContent;
+            btn.textContent = "✓ Copied!";
+            btn.classList.add("bg-green-600");
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.classList.remove("bg-green-600");
+            }, 2000);
+          })
+          .catch((err) => {
+            alert("Failed to copy. Please copy manually.");
+          });
+      }
+    </script>
+  </body>
+</html>
