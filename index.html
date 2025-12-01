@@ -36,7 +36,7 @@
     <!-- Header -->
     <header class="w-full border-b border-gray-200 bg-white">
       <div
-        class="max-w-full mx-auto px-4 py-3 flex items-center justify-between"
+        class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3"
       >
         <!-- Left: ChatGPT with dropdown -->
         <div
@@ -113,7 +113,9 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col px-4 py-8 overflow-y-auto min-h-0">
+    <main
+      class="flex-1 flex flex-col px-3 sm:px-4 lg:px-6 py-6 sm:py-8 overflow-y-auto min-h-0"
+    >
       <div class="w-full max-w-3xl mx-auto">
         <!-- Welcome message (shown when no messages) -->
         <div id="welcome-message" class="text-center">
@@ -128,8 +130,10 @@
     </main>
 
     <!-- Input Area -->
-    <div class="w-full border-t border-gray-200 bg-white pb-6 pt-4">
-      <div class="max-w-3xl mx-auto px-4">
+    <div
+      class="w-full border-t border-gray-200 bg-white pb-4 sm:pb-6 pt-3 sm:pt-4"
+    >
+      <div class="max-w-3xl mx-auto px-3 sm:px-4">
         <div class="relative flex items-center">
           <!-- Plus button on left -->
           <button
@@ -152,11 +156,11 @@
           </button>
 
           <!-- Input field -->
-          <div class="relative flex-1 ml-12 mr-2">
+          <div class="relative flex-1 ml-12 mr-1 sm:mr-2">
             <input
               type="text"
               placeholder="Ask anything"
-              class="w-full pl-10 pr-24 py-4 border border-gray-300 rounded-3xl bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-base shadow-sm"
+              class="w-full pl-10 pr-24 py-3 sm:py-4 border border-gray-300 rounded-3xl bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-base shadow-sm"
             />
 
             <!-- Small green robot icon inside input -->
@@ -180,7 +184,7 @@
 
             <!-- Right side icons -->
             <div
-              class="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2"
+              class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-1 sm:space-x-2"
             >
               <!-- Send button -->
               <button
@@ -226,7 +230,7 @@
 
               <!-- Microphone icon -->
               <button
-                class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-md transition-colors"
+                class="hidden sm:flex w-8 h-8 items-center justify-center hover:bg-gray-100 rounded-md transition-colors"
                 aria-label="Voice input"
               >
                 <svg
@@ -246,7 +250,7 @@
 
               <!-- Audio waveform button -->
               <button
-                class="w-8 h-8 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center transition-colors"
+                class="hidden sm:flex w-8 h-8 bg-black hover:bg-gray-800 rounded-full items-center justify-center transition-colors"
                 aria-label="Voice recording"
               >
                 <div class="flex items-center space-x-0.5">
